@@ -21,8 +21,8 @@ public class BookRestControllerAdvice {
                 currentApiVersion,
                 Integer.toString(HttpStatus.NOT_FOUND.value()),
                 ex.getMessage(),
-                "book-exceptions",
-                "not-found exception because of missing user or wrong id",
+                "book-api-exceptions",
+                "not-found exception because of missing book or wrong id",
                 "something went wrong, please try again later",
                 sendReportUri
         );
