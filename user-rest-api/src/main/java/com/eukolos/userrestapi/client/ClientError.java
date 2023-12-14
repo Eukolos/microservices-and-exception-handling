@@ -6,6 +6,11 @@ public class ClientError {
     private Error error;
     private String apiVersion;
 
+    public ClientError(Error error, String apiVersion) {
+        this.error = error;
+        this.apiVersion = apiVersion;
+    }
+
     public Error getError() {
         return error;
     }
@@ -25,7 +30,13 @@ public class ClientError {
     public static class Error {
         private String code;
         private String message;
-        private List<ErrorDetail> errors;
+        private List<Errors> errors;
+
+        public Error(String code, String message, List<Errors> errors) {
+            this.code = code;
+            this.message = message;
+            this.errors = errors;
+        }
 
         public String getCode() {
             return code;
@@ -43,20 +54,27 @@ public class ClientError {
             this.message = message;
         }
 
-        public List<ErrorDetail> getErrors() {
+        public List<Errors> getErrors() {
             return errors;
         }
 
-        public void setErrors(List<ErrorDetail> errors) {
+        public void setErrors(List<Errors> errors) {
             this.errors = errors;
         }
     }
 
-    public static class ErrorDetail {
+    public static class Errors {
         private String domain;
         private String reason;
         private String message;
         private String sendReport;
+
+        public Errors(String domain, String reason, String message, String sendReport) {
+            this.domain = domain;
+            this.reason = reason;
+            this.message = message;
+            this.sendReport = sendReport;
+        }
 
         public String getDomain() {
             return domain;
