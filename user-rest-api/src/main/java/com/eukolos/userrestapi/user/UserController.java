@@ -42,5 +42,10 @@ public class UserController {
         service.deleteById(id);
     }
 
+    @PostMapping("/{userId}/books/{bookId}")
+    public User addBookToUser(@PathVariable String userId, @PathVariable String bookId) {
+        return service.addBookToUser(userId, bookId);
+    }
+
 
 }
